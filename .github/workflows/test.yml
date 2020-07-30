@@ -2,10 +2,7 @@
 name: CI_Deploy_SS_Docs
 
 on:
-#  push:
-#    branches: [ master ]
-#  pull_request:
-#    branches: [ master ]
+  push:
   schedule:
   - cron: '0/10 * * * *'
 
