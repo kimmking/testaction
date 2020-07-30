@@ -39,5 +39,6 @@ jobs:
         git clone https://github.com/apache/shardingsphere target 
         cp -rf target/docs/* docs
         rm -rf target 
+        git add docs
         git commit -m  'update at `date`'
         git push
