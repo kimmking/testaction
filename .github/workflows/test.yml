@@ -31,9 +31,13 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-        echo `date` > data.txt
+        #echo `date` > data.txt
         git config --global user.email "kimmking@163.com"
         git config --global user.name "kimmking"
-        git add data.txt
-        git commit -m "update"
+        #git add data.txt
+        mkdir docs
+        git clone https://github.com/apache/shardingsphere target 
+        cp -rf target/docs/* docs
+        rm -rf target 
+        git commit -m  `date`
         git push
