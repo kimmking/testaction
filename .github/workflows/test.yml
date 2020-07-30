@@ -41,7 +41,7 @@ jobs:
         git config --global user.email "kimmking@163.com"
         git config --global user.name "kimmking"
         #git add data.txt
-        rm docs
+        rm -rf docs
         git clone https://github.com/apache/shardingsphere _shardingsphere 
         cp -rf _shardingsphere/docs/* docs
         rm -rf _shardingsphere
