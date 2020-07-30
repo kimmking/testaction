@@ -29,7 +29,7 @@ jobs:
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2.2.2
       with:
-        hugo-version: '0.64.1'
+        hugo-version: '0.70.0'
         extended: true
 
     # Runs a set of commands using the runners shell
@@ -45,7 +45,7 @@ jobs:
         git clone https://github.com/apache/shardingsphere _shardingsphere 
         cp -rf _shardingsphere/docs ./
         rm -rf _shardingsphere
-        ./docs/build.sh
+        sh ./docs/build.sh
         cp -rf docs/target ./
         rm -rf docs
         git add .
