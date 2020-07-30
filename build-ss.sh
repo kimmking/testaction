@@ -7,6 +7,9 @@ rm -rf docs
 git clone https://github.com/apache/shardingsphere _shardingsphere 
 
 echo check diff
+if  [ ! -s old_version ]  ; then
+    echo init > old_version 
+fi
 cd _shardingsphere
 git log -1 -p docs > new_version
 diff ../old_version new_version > result_version
