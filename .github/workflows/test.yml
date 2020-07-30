@@ -43,7 +43,7 @@ jobs:
         #git add data.txt
         rm -rf docs
         git clone https://github.com/apache/shardingsphere _shardingsphere 
-        cp -rf _shardingsphere/docs/* docs
+        cp -rf _shardingsphere/docs ./
         rm -rf _shardingsphere
         ./docs/build.sh
         cp -rf docs/target ./
