@@ -4,7 +4,7 @@ name: CI_Deploy_SS_Docs
 on:
   push:
   schedule:
-  - cron: '0/3 * * * *'
+  - cron: '0/5 * * * *'
 
 jobs:
   build:
