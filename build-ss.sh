@@ -12,7 +12,7 @@ git log -1 -p docs > new_version
 diff ../old_version new_version > result_version
 if  [ ! -s result_version ]  ; then
     echo "docs sources didn't change and nothing to do!"
-    exit 3
+    exit 0
 fi
 
 cd ..
