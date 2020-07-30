@@ -5,6 +5,20 @@ git config --global user.name "kimmking"
 echo git clone https://github.com/apache/shardingsphere
 rm -rf docs
 git clone https://github.com/apache/shardingsphere _shardingsphere 
+
+echo check diff
+cd _shardingsphere
+git log -1 -p docs > new_version
+diff ../old_version new_version > result_version
+if  [ ! -s result_version ]  ; then
+    echo "docs sources didn't change and nothing to do!"
+    exit 3
+fi
+
+cd ..
+rm -rf old_version
+mv _shardingsphere/new_version ./old_version
+
 cp -rf _shardingsphere/docs ./
 rm -rf _shardingsphere
 
