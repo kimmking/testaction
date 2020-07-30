@@ -32,6 +32,8 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         echo `date` > data.txt
+        git config --global user.email "kimmking@163.com"
+        git config --global user.name "kimmking"
         git add data.txt
         git commit -m "update"
         git push
