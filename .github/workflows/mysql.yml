@@ -28,5 +28,9 @@ jobs:
         mysql password: '123456' # Required if "mysql user" exists. The password for the "mysql user"
 
     - name: run mysql command 
-      run: mysql -V
+      run: |
+        echo create table test(id int not null primary key,name varchar(20) null,created datetime null); > 1.sql
+        echo insert into test values(100,'KK100',now()),(101,'KK101',now()),(102,'KK102',now()),(102,'KK102',now());  >> 1.sql
+        mysql -u root -p 123456 test < 1.sql
+        mysql -u root -p 123456 test -e "select * from test"
     
