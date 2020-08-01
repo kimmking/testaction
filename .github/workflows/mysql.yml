@@ -22,8 +22,8 @@ jobs:
     - name: setup MySQL server 8
       uses: kimmking/mysql-action@v1.1
       with:
-        host port: 3306 # Optional, default value is 3306. The port of host
-        container port: 3306 # Optional, default value is 3306. The port of container
+        host port: 3307 # Optional, default value is 3306. The port of host
+        container port: 3308 # Optional, default value is 3306. The port of container
         character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
         collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
         mysql version: '8.0' # Optional, default value is "latest". The version of the MySQL
@@ -37,9 +37,9 @@ jobs:
         echo "create table user(id int not null primary key,name varchar(20) null,created datetime null);" > 1.sql
         echo "insert into user values(100,'KK100',now()),(101,'KK101',now()),(102,'KK102',now()),(102,'KK102',now());"  >> 1.sql
         echo select now
-        mysql -h127.0.0.1 -P3306 -uroot -p123456 test -e "select now()"
+        mysql -h127.0.0.1 -P3308 -uroot -p123456 test -e "select now()"
         echo create and insert
-        mysql -h127.0.0.1 -P3306 -uroot -p123456 test < 1.sql
+        mysql -h127.0.0.1 -P3308 -uroot -p123456 test < 1.sql
         echo select data
-        mysql -h127.0.0.1 -P3306 -uroot -p123456 test -e "select * from user"
+        mysql -h127.0.0.1 -P3308 -uroot -p123456 test -e "select * from user"
     
