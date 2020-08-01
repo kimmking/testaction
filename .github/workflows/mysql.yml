@@ -16,8 +16,9 @@ jobs:
 
     - name: add mysql option
       run: |
-        echo -e "[mysqld]\nskip-name-resolve" > ~/.my.cnf
-        echo -e "[mysqld]\nskip-name-resolve" > /etc/mysql/my.cnf
+        echo -e "[mysqld]\nskip-name-resolve=ON\nbind-address=0.0.0.0" > ~/.my.cnf
+        
+# echo -e "[mysqld]\nskip-name-resolve" > /etc/mysql/my.cnf
         
     - name: setup MySQL server 8
       uses: kimmking/mysql-action@v1.1
