@@ -29,8 +29,10 @@ jobs:
 
     - name: run mysql command 
       run: |
-        ll /etc/my.cnf
-        ll /etc/mysql/my.cnf
+        echo "/etc/mysql/my.cnf"
+        cat /etc/mysql/my.cnf
+        echo "/etc/alternatives/my.cnf"
+        cat /etc/alternatives/my.cnf
         echo "create table user(id int not null primary key,name varchar(20) null,created datetime null);" > 1.sql
         echo "insert into user values(100,'KK100',now()),(101,'KK101',now()),(102,'KK102',now()),(102,'KK102',now());"  >> 1.sql
         echo select now
