@@ -14,6 +14,11 @@ jobs:
     steps:
 #    - uses: actions/checkout@v2
 
+    - name: add mysql option
+      run: |
+        echo -e "[mysqld]\nskip-name-resolve" > ~/.my.cnf
+        cat /etc/mysql/my.cnf
+        
     - name: setup MySQL server 8
       uses: mirromutth/mysql-action@v1.1
       with:
@@ -29,8 +34,6 @@ jobs:
 
     - name: run mysql command 
       run: |
-        echo -e "[mysql]\nskip-name-resolve" > ~/.my.cnf
-        cat /etc/mysql/my.cnf
         echo "create table user(id int not null primary key,name varchar(20) null,created datetime null);" > 1.sql
         echo "insert into user values(100,'KK100',now()),(101,'KK101',now()),(102,'KK102',now()),(102,'KK102',now());"  >> 1.sql
         echo select now
