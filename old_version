@@ -1,8 +1,8 @@
-commit 63c64f650da1b2c041119012aa907aaf242bf785
-Merge: db1334f729 4d91039141
+commit e0cef93cb556baf87b71c68312cc6be3ba8e9fc6
+Merge: 63c64f650d b2812f7adc
 Author: Juan Pan(Trista) <panjuan@apache.org>
-Date:   Fri Aug 21 16:27:14 2020 +0800
+Date:   Fri Aug 21 16:29:19 2020 +0800
 
-    Merge pull request #6966 from yang-7777/patch-2
+    Merge pull request #6968 from yang-7777/patch-3
     
-    Update CNCF.en.md
+    Update ElasticJob.en.md
