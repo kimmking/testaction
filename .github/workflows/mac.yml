@@ -25,5 +25,6 @@ jobs:
         echo -n "CPU线程数:  "
         sudo sysctl -n machdep.cpu.thread_count
         echo "其它信息："
-        sudo system_profiler SPDisplaysDataType SPMemoryDataType SPStorageDataType | grep 'Graphics/Displays:\|Chipset Model:\|VRAM (Total):\|Resolution:\|Memory Slots:\|Size:\|Speed:\|Storage:\|Media Name:\|Medium Type:'
+        sudo system_profiler SPDisplaysDataType SPMemoryDataType SPStorageDataType 
+        echo grep 'Graphics/Displays:\|Chipset Model:\|VRAM (Total):\|Resolution:\|Memory Slots:\|Size:\|Speed:\|Storage:\|Media Name:\|Medium Type:'
         mvn -v
