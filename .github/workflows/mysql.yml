@@ -18,6 +18,7 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: |
+        sudo apt install procps
         sudo free -m
         sudo uname -a
         sudo top -b -n 1
