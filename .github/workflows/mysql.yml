@@ -8,39 +8,18 @@ on:
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
-#    - uses: actions/checkout@v2
-
-    - name: add mysql option
-      run: |
-        echo -e "[mysqld]\nskip-name-resolve=ON\nbind-address=0.0.0.0" > ~/.my.cnf
-        
-# echo -e "[mysqld]\nskip-name-resolve" > /etc/mysql/my.cnf
-        
-    - name: setup MySQL server 8
-      uses: kimmking/mysql-action@v1.2
+    - uses: actions/checkout@v2
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
       with:
-        host port: 3316 # Optional, default value is 3306. The port of host
-        container port: 3317 # Optional, default value is 3306. The port of container
-        character set server: 'utf8' # Optional, default value is 'utf8mb4'. The '--character-set-server' option for mysqld
-        collation server: 'utf8_general_ci' # Optional, default value is 'utf8mb4_general_ci'. The '--collation-server' option for mysqld
-        mysql version: '5.7' # Optional, default value is "latest". The version of the MySQL
-        mysql database: 'test' # Optional, default value is "test". The specified database which will be create
-        mysql root password: '123456' # Required if "mysql user" is empty, default is empty. The root superuser password
-        mysql user: 'test' # Required if "mysql root password" is empty, default is empty. The superuser for the specified database. Can use secrets, too
-        mysql password: '123456' # Required if "mysql user" exists. The password for the "mysql user"
-
-    - name: run mysql command 
+        java-version: 1.8
+    - name: Build with Maven
       run: |
-        echo "create table user(id int not null primary key,name varchar(20) null,created datetime null);" > 1.sql
-        echo "insert into user values(100,'KK100',now()),(101,'KK101',now()),(102,'KK102',now()),(102,'KK102',now());"  >> 1.sql
-        echo select now
-        mysql -h127.0.0.1 -P3316 -uroot -p123456 test -e "select now()"
-        echo create and insert
-        mysql -h127.0.0.1 -P3316 -uroot -p123456 test < 1.sql
-        echo select data
-        mysql -h127.0.0.1 -P3316 -uroot -p123456 test -e "select * from user"
-    
+        sudo free -m
+        sudo uname -a
+        sudo top -b -n 1
+        sudo cat  /proc/cpuinfo
+        mvn -v
