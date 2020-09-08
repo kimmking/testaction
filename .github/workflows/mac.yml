@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v2
@@ -19,11 +19,11 @@ jobs:
     - name: Build with Maven
       run: |
         echo -n "CPU型号:    " 
-        sysctl -n machdep.cpu.brand_string
+        sudo sysctl -n machdep.cpu.brand_string
         echo -n "CPU核心数:  " 
-        sysctl -n machdep.cpu.core_count
+        sudo sysctl -n machdep.cpu.core_count
         echo -n "CPU线程数:  "
-        sysctl -n machdep.cpu.thread_count
+        sudo sysctl -n machdep.cpu.thread_count
         echo "其它信息："
-        system_profiler SPDisplaysDataType SPMemoryDataType SPStorageDataType | grep 'Graphics/Displays:\|Chipset Model:\|VRAM (Total):\|Resolution:\|Memory Slots:\|Size:\|Speed:\|Storage:\|Media Name:\|Medium Type:'
+        sudo system_profiler SPDisplaysDataType SPMemoryDataType SPStorageDataType | grep 'Graphics/Displays:\|Chipset Model:\|VRAM (Total):\|Resolution:\|Memory Slots:\|Size:\|Speed:\|Storage:\|Media Name:\|Medium Type:'
         mvn -v
