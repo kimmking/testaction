@@ -1,8 +1,8 @@
-commit e45e2a7c90b14f6b46c9ded189cd9581151b2043
-Merge: 7f7ff1c458 445ded1184
+commit 36d9700c901232e8dd8769991f222bbc9772e616
+Merge: e45e2a7c90 ae3b12edc3
 Author: Juan Pan(Trista) <panjuan@apache.org>
-Date:   Sun Sep 13 09:43:36 2020 +0800
+Date:   Sun Sep 13 09:44:29 2020 +0800
 
-    Merge pull request #7408 from yang-7777/patch-9
+    Merge pull request #7407 from yang-7777/patch-8
     
-    Update _index.en.md
+    Update _index.cn.md
